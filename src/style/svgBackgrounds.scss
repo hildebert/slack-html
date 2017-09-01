@@ -1,0 +1,13 @@
+/**
+svg-url-loader with limit=4096 is used to process SVG files.
+This means that if you include SVG file in you styles, svg-url-loader
+will load it and if it's size is less then 4096 bytes it will inline
+it into CSS file, otherwise - put it it `${"config.buildDir"}/img`
+directory.
+
+svg-url-loader will inline a file every time it's used in styles, so if
+you use the same file in different CSS classes it will be inlined for
+each of those classes, increasing the size of compiled CSS file. Instead,
+we use placeholer selectors here to require each SVG file once and than
+use @extend %svg-ornament everywhere we need this background image
+*/

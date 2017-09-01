@@ -1,0 +1,8 @@
+<% if (env == 'development') { %>
+<script src="/node_modules/_dll/styles.development.js"></script>
+<script src="/node_modules/_dll/vendors.development.js"></script>
+<script src="/app.js?<%= Date.now() %>"></script>
+<% } else { %>
+<script src="/js/vendors.js"></script>
+<script src="/js/app.js?<%= hash %>"></script>
+<% } %>

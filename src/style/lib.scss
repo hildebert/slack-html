@@ -1,0 +1,22 @@
+/**
+This file is used to give all separate style files access
+to variables, mixins, etc. Don't forget to require it in all
+separate style files that need mixins/variables.
+
+Beware not to include any styles that generate actual CSS - it
+will be duplicated in compiled files as many times as you include
+this one somewhere.
+
+If you want to extend classes - declare extendable classes as
+%class-to-extend
+and not
+.class-to-extend
+this way thay will not be compiles into actual CSS. This is calles
+"placeholer selectors":
+http://thesassway.com/intermediate/understanding-placeholder-selectors
+
+See svgBackgrounds for example.
+*/
+@import "~style/vars";
+@import "~style/svgBackgrounds";
+@import "~style/icons";

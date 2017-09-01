@@ -1,0 +1,110 @@
+@import "~style/lib";
+
+.header {
+	height: $headerHeight;
+	width: 100%;
+	padding: 1rem 1rem 1rem 1.3rem;
+	border-bottom: 1px solid #e8e8e8;
+	display: flex;
+
+	&__left, &__right {
+		min-width: 50%;
+		//border: 1px solid red;
+		align-items: center;
+	}
+
+	&__right {
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	&__title {
+		font-size: 1.6rem;
+		font-weight: 800;
+	}
+
+	&__actions {
+		display: flex;
+
+		&__item {
+			margin-right: 0.5rem;
+			position: relative;
+
+			font-size: 1.2rem;
+			font-style: italic;
+			color: #717274;
+
+			&:after {
+				content: '|';
+				color: #cac1d4;
+				margin-left: 0.5rem;
+				display: inline-block;
+			}
+
+			&:last-child:after {
+				display: none;
+			}
+		}
+	}
+
+	&__icons {
+
+		&__item {
+			display: block;
+			width: 2rem;
+			height: 2rem;
+			margin-left: 2rem;
+
+			cursor: pointer;
+			color: #717274;
+
+			&:hover {
+				color: #007AB8;
+			}
+
+			&:before {
+				font-size: 2rem;
+			}
+
+			&._phone {
+				&:before {
+					@extend %icon-phone;
+				}
+			}
+
+			&._info {
+				&:before {
+					@extend %icon-info;
+				}
+			}
+
+			&._settings {
+				&:before {
+					@extend %icon-settings;
+				}
+			}
+
+			&._email {
+
+				&:hover {
+					color: #eb4d5c;
+				}
+
+				&:before {
+					@extend %icon-email;
+				}
+			}
+
+			&._star {
+
+				&:hover {
+					color: #fC0;
+				}
+
+				&:before {
+					@extend %icon-star;
+				}
+			}
+		}
+	}
+}

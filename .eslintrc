@@ -1,0 +1,20 @@
+{
+	"extends": [
+		"standard"
+	],
+	"plugins": [],
+	"parser": "babel-eslint",
+	"env": {
+		"browser": true
+	},
+	"rules": {
+		"semi": ["error", "always"],
+		"space-before-function-paren": 0,
+		"indent": [0, 4],
+		"no-tabs": 0,
+		"no-unused-vars": 1,
+		"comma-dangle": 1,
+		"spaced-comment": 0,
+		"import/no-webpack-loader-syntax": 0
+	}
+}

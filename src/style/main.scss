@@ -1,0 +1,36 @@
+/**
+This isn't an entry point to style files, it just contains some common styling and
+includes fonts. Keep styling of different pages and blocks in separate files and
+require them in appropriate JavaScript files to speed up development builds.
+See ../components/about/index.js and ../components/about/about.scss for example.
+*/
+@import "reset";
+@import "fonts";
+@import "~style/lib";
+
+*, *:after, *:before {
+	box-sizing: border-box;
+}
+
+HTML {
+	font-size: 62.5%;
+}
+
+HTML, BODY {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+BODY {
+	-webkit-text-size-adjust: none;
+	-webkit-overflow-scrolling: touch;
+	font-family: 'Lato', sans-serif;
+	line-height: 1.5;
+}
+
+.container {
+	display: flex;
+	min-height: 100%;
+}

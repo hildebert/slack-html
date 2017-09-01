@@ -1,0 +1,122 @@
+{
+  "name": "simple-html-build-system",
+  "version": "1.0.0",
+  "description": "Simple HTML build system",
+  "main": "./src/index.js",
+  "scripts": {
+    "lint": "eslint server/**/*.js src/**/*.js webpack/**/*.js --ignore-pattern *.test.js",
+    "test": "better-npm-run test",
+    "test:watch": "npm run test -- --watch",
+    "start": "babel-node ./scripts/prodServer.js",
+    "dev": "better-npm-run dev",
+    "devmon": "nodemon --exec better-npm-run dev",
+    "build": "npm run lint && npm run build-templates && better-npm-run build-assets && npm run optimize-images",
+    "build-templates": "better-npm-run build-templates",
+    "optimize-images": "babel-node ./scripts/optimizeImages.js",
+    "dll:dev": "better-npm-run dll:dev",
+    "dll:prod": "better-npm-run dll:prod",
+    "dll": "npm run dll:dev && npm run dll:prod",
+    "postinstall": "npm run dll",
+    "postuninstall": "npm run dll",
+    "webpack": "babel-node node_modules/webpack/bin/webpack.js"
+  },
+  "betterScripts": {
+    "dev": {
+      "command": "babel-node ./scripts/devServer.js",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "build-templates": {
+      "command": "babel-node ./scripts/buildTemplates.js",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "build-assets": {
+      "command": "npm run webpack -- --optimize-minimize --color --progress --config=webpack/webpack.config.prod.js",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "test": {
+      "command": "jest",
+      "env": {
+        "NODE_ENV": "test"
+      }
+    },
+    "dll:prod": {
+      "command": "npm run webpack -- --color --progress --config=webpack/webpack.config.dll.js",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "dll:dev": {
+      "command": "npm run webpack -- --color --progress --config=webpack/webpack.config.dll.js",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Apination/workflow-builder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/graymur/simple-html-build-system/issues"
+  },
+  "homepage": "https://github.com/graymur/simple-html-build-system#readme",
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "jquery-validation": "^1.15.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.2",
+    "babel-cli": "^6.22.2",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "better-npm-run": "^0.1.0",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.28.4",
+    "css-mqpacker": "^6.0.1",
+    "ejs": "^2.5.6",
+    "eslint": "^4.3.0",
+    "eslint-config-standard": "^10.0.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "express": "^4.15.3",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "html": "^1.0.0",
+    "imagemin": "^5.3.1",
+    "imagemin-jpegtran": "^5.0.2",
+    "imagemin-pngquant": "^5.0.1",
+    "img-loader": "^2.0.0",
+    "lodash": "^4.17.4",
+    "merge-deep": "^3.0.0",
+    "node-sass": "^4.5.3",
+    "node-watch": "^0.5.5",
+    "opener": "^1.4.2",
+    "postcss-loader": "^2.0.6",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "svg-url-loader": "^2.1.1",
+    "svgo": "^0.7.2",
+    "svgo-loader": "^1.2.1",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.4.1",
+    "webpack-bundle-analyzer": "^2.8.3",
+    "webpack-dev-middleware": "^1.11.0",
+    "webpack-hot-middleware": "^2.18.2",
+    "webpack-node-externals": "^1.6.0"
+  }
+}
