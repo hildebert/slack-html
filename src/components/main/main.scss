@@ -13,7 +13,6 @@
 
 	&__messages {
 		flex: 1 0 auto;
-		//background: skyblue;
 		height: calc(100% - #{$headerHeight});
 
 	}
@@ -21,7 +20,6 @@
 	&__aside {
 		flex: 0 1 auto;
 		width: 49rem;
-		//background: burlywood;
 		height: calc(100% - #{$headerHeight});
 	}
 }

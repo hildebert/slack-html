@@ -1,0 +1,62 @@
+@import "~style/lib";
+
+.header__icons {
+
+	&__item {
+		display: block;
+		width: 2rem;
+		height: 2rem;
+		margin-left: 2rem;
+
+		cursor: pointer;
+		color: #717274;
+
+		&:hover {
+			color: #007AB8;
+		}
+
+		&:before {
+			font-size: 2rem;
+		}
+
+		&._phone {
+			&:before {
+				@extend %icon-phone;
+			}
+		}
+
+		&._info {
+			&:before {
+				@extend %icon-info;
+			}
+		}
+
+		&._settings {
+			&:before {
+				@extend %icon-settings;
+			}
+		}
+
+		&._email {
+
+			&:hover {
+				color: #eb4d5c;
+			}
+
+			&:before {
+				@extend %icon-email;
+			}
+		}
+
+		&._star {
+
+			&:hover {
+				color: #fC0;
+			}
+
+			&:before {
+				@extend %icon-star;
+			}
+		}
+	}
+}
